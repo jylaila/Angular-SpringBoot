@@ -1,0 +1,40 @@
+<div class="card">
+  <div class="card-header bg-primary text-light">
+    {{title}}
+  </div>
+
+  <div class="card-body">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Endereço</th>
+          <th scope="col">Limite de Crédito</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- os dados serão exibidos aqui -->
+        <tr *ngFor="let cliente of clientes">
+          <td>{{cliente.id}}</td>
+          <td>{{cliente.nome}}</td>
+          <td>{{cliente.endereco}}</td>
+          <td>{{cliente.limiteCredito | currency:'BRL'}}</td>
+          <td>
+            <a class="btn btn-primary" title="editar" routerLink="/clientes/editar/{{cliente.id}}">
+              <i class="fa fa-edit"></i>
+            </a>
+          </td>
+          <td>
+            <a class="btn btn-danger" title="excluir" href="#" (click)="delete(cliente)">
+              <i class="fa fa-trash"></i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <a routerLink="/clientes/novo" class="btn btn-primary">Novo Cliente</a>
+  </div>
+</div>
